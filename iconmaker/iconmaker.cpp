@@ -80,7 +80,6 @@ int main()
         }
 
         filename += ".png";
-        //std::cout << filename << "\n";
         pngwriter test(64, 64, 1.0, filename.c_str());
         horizontal(test, r1, g1, b1);
         vertical(test, r2, g2, b2);
@@ -146,7 +145,6 @@ int main()
         }
 
         filename += ".png";
-        //std::cout << filename << "\n";
         pngwriter test(64, 64, 1.0, filename.c_str());
         horizontal(test, r1, g1, b1);
         leftdiag(test, r2, g2, b2);
@@ -231,7 +229,6 @@ int main()
         }
 
         filename += ".png";
-        //std::cout << filename << "\n";
         pngwriter test(64, 64, 1.0, filename.c_str());
         horizontal(test, r1, g1, b1);
         leftdiag(test, r2, g2, b2);
@@ -239,8 +236,6 @@ int main()
         rightdiag(test, r4, g4, b4);
         test.close();
     }
-
-
     return 0;
 }
 
