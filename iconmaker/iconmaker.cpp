@@ -1,4 +1,5 @@
 #include "pngwriter.hpp"
+#include <iostream>
 
 using namespace std;
 
@@ -32,52 +33,27 @@ void rightdiag(pngwriter& png, double red, double green, double blue)
     }
 }
 
-int main()
+void addcolor(int c, string& fn, double& r, double& g, double& b) 
 {
-    
+    if (c == 0) {fn += "g"; r = 0.0; g = 1.0; b = 0.0;}
+    else if (c == 1) {fn += "r"; r = 1.0; g = 0.0; b = 0.0;}
+    else {fn += "y"; r = 1.0; g = 1.0; b = 0.0;}
+}
+
+int main()
+{  
     string filename;
-    int i;
+    // colors: 0 = green, 1 = red, 2 = yellow
+    int i, color1, color2, color3, color4;
     double r1, g1, b1, r2, g2, b2, r3, g3, b3, r4, g4, b4;
 
     // 2-street intersection
     for (i = 0; i < 9; i++) {
         filename = "files/i2";
-        if (i/3 == 0) {
-            filename += "g";
-            r1 = 0.0;
-            g1 = 1.0;
-            b1 = 0.0;
-        }
-        else if (i/3 == 1) {
-            filename += "r";
-            r1 = 1.0;
-            g1 = 0.0;
-            b1 = 0.0;            
-        }
-        else {
-            filename += "y";
-            r1 = 1.0;
-            g1 = 1.0;
-            b1 = 0.0;
-        }
-        if (i%3 == 0) {
-            filename += "g";
-            r2 = 0.0;
-            g2 = 1.0;
-            b2 = 0.0;
-        }
-        else if (i%3 == 1) {
-            filename += "r";
-            r2 = 1.0;
-            g2 = 0.0;
-            b2 = 0.0; 
-        }
-        else {
-            filename += "y";
-            r2 = 1.0;
-            g2 = 1.0;
-            b2 = 0.0;
-        }
+        color1 = i/3;
+        addcolor(color1, filename, r1, g1, b1);
+        color2 = i%3;
+        addcolor(color2, filename, r2, g2, b2);
 
         filename += ".png";
         pngwriter test(64, 64, 1.0, filename.c_str());
@@ -89,60 +65,12 @@ int main()
     // 3-street intersection
     for (i = 0; i < 27; i++) {
         filename = "files/i3";
-        if (i/9 == 0) {
-            filename += "g";
-            r1 = 0.0;
-            g1 = 1.0;
-            b1 = 0.0;
-        }
-        else if (i/9 == 1) {
-            filename += "r";
-            r1 = 1.0;
-            g1 = 0.0;
-            b1 = 0.0;            
-        }
-        else {
-            filename += "y";
-            r1 = 1.0;
-            g1 = 1.0;
-            b1 = 0.0;
-        }
-        if (i/3 == 0) {
-            filename += "g";
-            r2 = 0.0;
-            g2 = 1.0;
-            b2 = 0.0;
-        }
-        else if (i/3 == 1) {
-            filename += "r";
-            r2 = 1.0;
-            g2 = 0.0;
-            b2 = 0.0;            
-        }
-        else {
-            filename += "y";
-            r2 = 1.0;
-            g2 = 1.0;
-            b2 = 0.0;
-        }
-        if (i%3 == 0) {
-            filename += "g";
-            r3 = 0.0;
-            g3 = 1.0;
-            b3 = 0.0;
-        }
-        else if (i%3 == 1) {
-            filename += "r";
-            r3 = 1.0;
-            g3 = 0.0;
-            b3 = 0.0; 
-        }
-        else {
-            filename += "y";
-            r3 = 1.0;
-            g3 = 1.0;
-            b3 = 0.0;
-        }
+        color1 = i/9;
+        addcolor(color1, filename, r1, g1, b1);
+        color2 = i/3;
+        addcolor(color2, filename, r2, g2, b2);
+        color3 = i%3;
+        addcolor(color3, filename, r3, g3, b3);
 
         filename += ".png";
         pngwriter test(64, 64, 1.0, filename.c_str());
@@ -155,79 +83,15 @@ int main()
     // 4-street intersection
     for (i = 0; i < 81; i++) {
         filename = "files/i4";
-        if (i/27 == 0) {
-            filename += "g";
-            r1 = 0.0;
-            g1 = 1.0;
-            b1 = 0.0;
-        }
-        else if (i/27 == 1) {
-            filename += "r";
-            r1 = 1.0;
-            g1 = 0.0;
-            b1 = 0.0;            
-        }
-        else {
-            filename += "y";
-            r1 = 1.0;
-            g1 = 1.0;
-            b1 = 0.0;
-        }
-        if (i/9 == 0) {
-            filename += "g";
-            r2 = 0.0;
-            g2 = 1.0;
-            b2 = 0.0;
-        }
-        else if (i/9 == 1) {
-            filename += "r";
-            r2 = 1.0;
-            g2 = 0.0;
-            b2 = 0.0;            
-        }
-        else {
-            filename += "y";
-            r2 = 1.0;
-            g2 = 1.0;
-            b2 = 0.0;
-        }
-        if (i/3 == 0) {
-            filename += "g";
-            r3 = 0.0;
-            g3 = 1.0;
-            b3 = 0.0;
-        }
-        else if (i/3 == 1) {
-            filename += "r";
-            r3 = 1.0;
-            g3 = 0.0;
-            b3 = 0.0;            
-        }
-        else {
-            filename += "y";
-            r3 = 1.0;
-            g3 = 1.0;
-            b3 = 0.0;
-        }
-        if (i%3 == 0) {
-            filename += "g";
-            r4 = 0.0;
-            g4 = 1.0;
-            b4 = 0.0;
-        }
-        else if (i%3 == 1) {
-            filename += "r";
-            r4 = 1.0;
-            g4 = 0.0;
-            b4 = 0.0; 
-        }
-        else {
-            filename += "y";
-            r4 = 1.0;
-            g4 = 1.0;
-            b4 = 0.0;
-        }
-
+        color1 = i/27;
+        addcolor(color1, filename, r1, g1, b1);
+        color2 = i/9;
+        addcolor(color2, filename, r2, g2, b2);
+        color3 = i/3;
+        addcolor(color3, filename, r3, g3, b3);
+        color4 = i%3;
+        addcolor(color4, filename, r4, g4, b4);
+        
         filename += ".png";
         pngwriter test(64, 64, 1.0, filename.c_str());
         horizontal(test, r1, g1, b1);
@@ -238,4 +102,3 @@ int main()
     }
     return 0;
 }
-
