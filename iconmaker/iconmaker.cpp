@@ -1,6 +1,4 @@
 #include "pngwriter.hpp"
-#include <iostream>
-
 using namespace std;
 
 void horizontal(pngwriter& png, double red, double green, double blue) 
@@ -67,7 +65,7 @@ int main()
         filename = "files/i3";
         color1 = i/9;
         addcolor(color1, filename, r1, g1, b1);
-        color2 = i/3;
+        color2 = (i/3)%3;
         addcolor(color2, filename, r2, g2, b2);
         color3 = i%3;
         addcolor(color3, filename, r3, g3, b3);
@@ -85,9 +83,9 @@ int main()
         filename = "files/i4";
         color1 = i/27;
         addcolor(color1, filename, r1, g1, b1);
-        color2 = i/9;
+        color2 = (i/9)%3;
         addcolor(color2, filename, r2, g2, b2);
-        color3 = i/3;
+        color3 = (i/3)%3;
         addcolor(color3, filename, r3, g3, b3);
         color4 = i%3;
         addcolor(color4, filename, r4, g4, b4);
